@@ -1,18 +1,13 @@
-<ul class="download">
-	* [Download source code - 692 KB](simdarray.zip)
 
+## Table of Content
 
-## Introduction
-
-
-	* Introduction
-	* Simple Example
-	* Drawing a Circle
-	* Circle Cover Effect
-	* Hexagon Cover Effect
-	* History
-	* Reference
-
+* Introduction
+* Simple Example
+* Drawing a Circle
+* Circle Cover Effect
+* Hexagon Cover Effect
+* History
+* Reference
 
 ## Introduction
 
@@ -60,6 +55,7 @@ Below is the table which lists the vector classes and their associated header fi
 | F64vec2 | 64 | 2 | double | 128 | dvec.h |
 | F32vec8 | 32 | 8 | float | 256 | dvec.h |
 | F64vec4 | 64 | 4 | double | 256 | dvec.h |
+
 [__Optimizing software in C++__](http://www.agner.org/optimize/optimizing_cpp.pdf): _It is not recommended to use the 64-bit vectors in _ivec.h_ because these are incompatible with floating point code. If you do use the 64-bit vectors then you have to execute `_mm_empty()` after the 64-bit vector operations and before any floating point code. The 128-bit vectors do not have this problem. The 256-bit vectors require that the AVX instruction set is supported by the microprocessor and the operating system._
 
 Most of the integer vector class do not support vector multiplication operations and __all__ integer vector class do not support vector division operations, while float and double vector class do support vector addition, subtraction, multiplication and division. Here is an example to implement your own integer (32bit) division operator using the scalar division. And of course, using scalar operation will be slower.
@@ -699,7 +695,7 @@ __Tip__: you can replace the _flickr1.jpg_ and _flickr2.jpg_ in the `res` folder
 
 The hexagon cover effect is similar to the circle cover application. The only difference is the expanding edge is replaced by little hexagons. As with the `CircleCover` application, you can replace the images before compilation.
 
-![RadiusHexagon.png](/images/RadiusHexagon.png)
+![RadiusHexagon.png](/images/RadiusHexagon.webp)
 
 This is how it works. The difference between each hexagon center and the mouse point is calculated. If the difference is greater than the hexagon, then the hexagon should be displayed. If the difference is smaller, then a pre-computed mask (which store the distance of each pixel from the hexagon center) is used to determine whether the pixel underneath should be displayed. I did not convert this application to use SSE, simply because the speed gain will not be much as the number of distance to compute between each hexagon center and the mouse point, are not many. And the distance of each pixel from the hexagon center is pre-computed as a mask. I leave it as a exercise for the reader to convert this code to use SSE. The source code is heavily commented.
 
@@ -715,4 +711,6 @@ We has seen how to use the SIMD vector class provided by Visual Studio for code 
 
 ## Reference
 
-* [Optimizing software in C++](http://www.agner.org/optimize/optimizing_cpp.pdf)
+* [Optimizing software in C++](http://www.agner.org/optimize/optimizing_cpp.pdf)
+
+
