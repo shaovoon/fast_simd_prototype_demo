@@ -78,7 +78,7 @@ We will use the `F32vec4` class (128 bit float vector) to draw a circle. I&#39;l
 
 ![DrawCircleNormal.png](/images/DrawCircleNormal.png)
 
-<img alt="Pixel within the circle" height="201" src="Radius.png" width="204" />
+![Radius.png](/images/Radius.png)
 
 The code uses Pythagorean theorem to determine if the pixel falls within the circle. Using X and Y coordinates from the center of the circle, we calculate the hypotenuse, using sqrt(X<sup>2</sup>+Y<sup>2</sup>). The hypotenuse is the pixel distance from the center point. If it is smaller than the radius, then it is within the circle and the pixel should be set to green color.
 
@@ -695,7 +695,7 @@ __Tip__: you can replace the _flickr1.jpg_ and _flickr2.jpg_ in the `res` folder
 
 The hexagon cover effect is similar to the circle cover application. The only difference is the expanding edge is replaced by little hexagons. As with the `CircleCover` application, you can replace the images before compilation.
 
-![RadiusHexagon.png](/images/RadiusHexagon.webp)
+![RadiusHexagon.webp](/images/RadiusHexagon.webp)
 
 This is how it works. The difference between each hexagon center and the mouse point is calculated. If the difference is greater than the hexagon, then the hexagon should be displayed. If the difference is smaller, then a pre-computed mask (which store the distance of each pixel from the hexagon center) is used to determine whether the pixel underneath should be displayed. I did not convert this application to use SSE, simply because the speed gain will not be much as the number of distance to compute between each hexagon center and the mouse point, are not many. And the distance of each pixel from the hexagon center is pre-computed as a mask. I leave it as a exercise for the reader to convert this code to use SSE. The source code is heavily commented.
 
